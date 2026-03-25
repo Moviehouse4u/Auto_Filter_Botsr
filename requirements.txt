@@ -12,10 +12,8 @@ aiohttp
 telegraph
 pymediainfo-pyrofork
 
-# Other tools
-opencv-python-headless==4.8.1.78
+# Tools
 python-dotenv==0.21.1
-PyLeaves==1.0.2
 humanize
 Pillow
 psutil
@@ -34,6 +32,5 @@ colorama
 fuzzywuzzy
 python-Levenshtein==0.27.1
 
-# Git-based Packages
+# Git Packages
 git+https://github.com/NBBotz/IMDBKit.git@main
-git+https://github.com/DreamXBotz/cinemagoer
