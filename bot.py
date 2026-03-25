@@ -121,7 +121,12 @@ async def dreamxbotz_start():
     time = now.strftime("%H:%M:%S %p")
     await dreamxbotz.send_message(chat_id=LOG_CHANNEL, text=script.RESTART_TXT.format(temp.B_LINK, today, time))
     app = web.AppRunner(await web_server())
-await app.setup()
+from pyrogram import Client
+
+app = Client("mybot")
+
+if __name__ == "__main__":
+    app.run()
 
 bind_address = "0.0.0.0"
 PORT = int(os.environ.get("PORT", 8000))
