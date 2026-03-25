@@ -121,14 +121,18 @@ async def dreamxbotz_start():
     time = now.strftime("%H:%M:%S %p")
     await dreamxbotz.send_message(chat_id=LOG_CHANNEL, text=script.RESTART_TXT.format(temp.B_LINK, today, time))
     app = web.AppRunner(await web_server())
-    await app.setup()
-    bind_address = "0.0.0.0"
+await app.setup()
+
+bind_address = "0.0.0.0"
 PORT = int(os.environ.get("PORT", 8000))
-    await web.TCPSite(app, bind_address, PORT).start()
-    dreamxbotz.loop.create_task(keep_alive())
-    await idle()
+
+site = web.TCPSite(app, bind_address, PORT)
+await site.start()
+
+dreamxbotz.loop.create_task(keep_alive())
+await idle()
     
-if __name__ == '__main__':
+if __name__ == "__main__":
     loop = asyncio.get_event_loop()
     while True:
         try:
